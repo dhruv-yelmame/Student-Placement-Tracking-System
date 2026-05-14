@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #f1f5f9;
+	font-family: Arial, sans-serif;
+	overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+	width: 260px;
+	height: 100vh;
+	background: linear-gradient(180deg, #1e3a8a, #2563eb);
+	position: fixed;
+	left: 0;
+	top: 0;
+	padding: 25px 15px;
+}
+
+.logo {
+	color: white;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.logo h2 {
+	font-weight: bold;
+}
+
+.logo p {
+	color: #dbeafe;
+}
+
+.menu-title {
+	color: #cbd5e1;
+	font-size: 14px;
+	margin: 20px 10px 10px;
+}
+
+/* Sidebar Links */
+.sidebar a {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	color: white;
+	text-decoration: none;
+	padding: 14px;
+	border-radius: 12px;
+	margin-bottom: 10px;
+	transition: 0.3s;
+	font-size: 16px;
+}
+
+.sidebar a:hover {
+	background: rgba(255, 255, 255, 0.15);
+	transform: translateX(5px);
+}
+
+/* Main Content */
+.main-content {
+	margin-left: 260px;
+	padding: 20px;
+	height: 100vh;
+}
+
+/* iframe */
+iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	border-radius: 20px;
+	background: white;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive */
+@media ( max-width :768px) {
+	body {
+		overflow: auto;
+	}
+	.sidebar {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+	.main-content {
+		margin-left: 0;
+		height: auto;
+	}
+	iframe {
+		height: 700px;
+	}
+}
+</style>
+
+</head>
+
+<body>
+
+	<!-- Sidebar -->
+
+	<div class="sidebar">
+
+		<div class="logo">
+
+			<h2>Admin Panel</h2>
+
+			<p>Placement Tracking System</p>
+
+		</div>
+
+		<div class="menu-title">MAIN MENU</div>
+
+		<!-- Dashboard -->
+
+		<a href="../DashboardServlet" target="contentFrame"> <i
+			class="bi bi-speedometer2"></i> Dashboard
+
+		</a>
+
+		<!-- Add Company -->
+
+		<a href="AddCompany.html" target="contentFrame"> <i
+			class="bi bi-building-add"></i> Add Company
+
+		</a>
+
+		<!-- View Companies -->
+
+		<a href="../ViewCompanyServlet" target="contentFrame"> <i
+			class="bi bi-buildings"></i> View Companies
+
+		</a>
+
+		<!-- View Students -->
+
+		<a href="../ViewStudentsServlet" target="contentFrame"> <i
+			class="bi bi-people-fill"></i> View Students
+
+		</a>
+
+		<!-- Placements -->
+
+		<a href="../ViewPlacementServlet" target="contentFrame"> <i
+			class="bi bi-briefcase-fill"></i> Placements
+
+		</a>
+
+		<!-- Logout -->
+
+		<a href="../AdminLogoutServlet"> <i class="bi bi-box-arrow-right"></i>
+
+			Logout
+
+		</a>
+
+	</div>
+
+	<!-- Main Content -->
+
+	<div class="main-content">
+
+		<iframe name="contentFrame" src="../DashboardServlet"> </iframe>
+
+	</div>
+
+	<script>
+		history.pushState(null, null, location.href);
+
+		window.onpopstate = function() {
+
+			history.go(1);
+		};
+	</script>
+
+</body>
+
+</html>
