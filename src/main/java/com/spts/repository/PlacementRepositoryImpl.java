@@ -13,44 +13,39 @@ public class PlacementRepositoryImpl extends DBConfig implements PlacementReposi
 	@Override
 	public List<Placement> getAllPlacements() {
 
-	    List<Placement> list = new ArrayList<>();
+		List<Placement> list = new ArrayList<>();
 
-	    try {
+		try {
 
-	        PreparedStatement pstmt = conn.prepareStatement(
+			PreparedStatement pstmt = conn.prepareStatement(
 
-	            "SELECT p.pid, s.name, c.company_name, p.apply_date, p.status " +
-	            "FROM placements p " +
-	            "JOIN students s ON p.sid = s.sid " +
-	            "JOIN companies c ON p.cid = c.cid"
+					"SELECT p.pid, s.name, c.company_name, p.apply_date, p.status FROM placements p JOIN students s ON p.sid = s.sid JOIN companies c ON p.cid = c.cid ORDER BY p.pid ASC");
 
-	        );
+			ResultSet rs = pstmt.executeQuery();
 
-	        ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
 
-	        while (rs.next()) {
+				Placement p = new Placement();
 
-	            Placement p = new Placement();
+				p.setPid(rs.getInt("pid"));
 
-	            p.setPid(rs.getInt("pid"));
+				p.setStudentName(rs.getString("name"));
 
-	            p.setStudentName(rs.getString("name"));
+				p.setCompanyName(rs.getString("company_name"));
 
-	            p.setCompanyName(rs.getString("company_name"));
+				p.setApply_date(rs.getDate("apply_date"));
 
-	            p.setApply_date(rs.getDate("apply_date"));
+				p.setStatus(rs.getString("status"));
 
-	            p.setStatus(rs.getString("status"));
+				list.add(p);
+			}
 
-	            list.add(p);
-	        }
+		} catch (Exception e) {
 
-	    } catch (Exception e) {
+			System.out.println(e);
+		}
 
-	        System.out.println(e);
-	    }
-
-	    return list;
+		return list;
 	}
 
 	@Override
@@ -60,8 +55,7 @@ public class PlacementRepositoryImpl extends DBConfig implements PlacementReposi
 
 			PreparedStatement pstmt = conn.prepareStatement(
 
-					"update placements " + "set status=? " + "where pid=?"
-
+					"update placements set status=? where pid=?"
 			);
 
 			pstmt.setString(1, status);
@@ -92,8 +86,7 @@ public class PlacementRepositoryImpl extends DBConfig implements PlacementReposi
 
 			PreparedStatement pstmt = conn.prepareStatement(
 
-					"insert into placements " + "(sid,cid,apply_date,status) " + "values(?,?,curdate(),'Applied')"
-			);
+					"insert into placements (sid,cid,apply_date,status) values(?,?,curdate(),'Applied')");
 
 			pstmt.setInt(1, sid);
 
@@ -123,7 +116,7 @@ public class PlacementRepositoryImpl extends DBConfig implements PlacementReposi
 
 			PreparedStatement pstmt = conn.prepareStatement(
 
-					"delete from placements " + "where sid=? and cid=?"
+					"delete from placements where sid=? and cid=?"
 
 			);
 
@@ -155,7 +148,7 @@ public class PlacementRepositoryImpl extends DBConfig implements PlacementReposi
 
 			PreparedStatement pstmt = conn.prepareStatement(
 
-					"select * from placements " + "where sid=? and cid=?"
+					"select * from placements where sid=? and cid=?"
 
 			);
 
@@ -187,9 +180,7 @@ public class PlacementRepositoryImpl extends DBConfig implements PlacementReposi
 
 			PreparedStatement pstmt = conn.prepareStatement(
 
-					"select " + "p.pid," + "c.company_name," + "c.company_package," + "p.apply_date," + "p.status "
-							+ "from placements p " + "join companies c " + "on p.cid=c.cid " + "where p.sid=?"
-
+				"select p.pid, c.company_name, c.company_package, p.apply_date, p.status from placements p join companies c on p.cid=c.cid where p.sid=?"
 			);
 
 			pstmt.setInt(1, sid);
@@ -219,5 +210,37 @@ public class PlacementRepositoryImpl extends DBConfig implements PlacementReposi
 		}
 
 		return list;
+	}
+
+	@Override
+	public String getApplicationStatus(int sid, int cid) {
+
+		String status = null;
+
+		try {
+
+			PreparedStatement pstmt = conn.prepareStatement(
+
+					"select status from placements where sid=? and cid=?"
+
+			);
+
+			pstmt.setInt(1, sid);
+
+			pstmt.setInt(2, cid);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+
+				status = rs.getString("status");
+			}
+
+		} catch (Exception e) {
+
+			System.out.println(e);
+		}
+
+		return status;
 	}
 }

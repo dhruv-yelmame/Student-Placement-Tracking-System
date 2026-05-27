@@ -38,7 +38,6 @@ public class ApplyCompanyServlet extends HttpServlet {
 		boolean applied = service.isAlreadyApplied(sid, cid);
 
 		if (!applied) {
-
 			service.applyCompany(sid, cid);
 			response.sendRedirect("StudentViewCompanyServlet");
 		}

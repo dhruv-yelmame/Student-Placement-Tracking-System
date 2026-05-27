@@ -27,4 +27,10 @@ public class StudentServiceImpl implements StudentService {
 
 		return repo.updateProfile(s);
 	}
+	
+	@Override
+	public boolean deleteStudent(int sid) {
+
+		return repo.deleteStudent(sid);
+	}
 }

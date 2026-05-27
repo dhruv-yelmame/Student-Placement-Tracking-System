@@ -1,463 +1,622 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Placement Tracking System</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<!-- Bootstrap CSS -->
+<title>
+Placement Tracking System
+</title>
 
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-
-<!-- Bootstrap Icons -->
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+rel="stylesheet">
 
 <link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <style>
-html {
-	scroll-behavior: smooth;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-	font-family: Arial, sans-serif;
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#F1F5F9;
+}
+
+/* Navbar */
+
+.navbar{
+    background:#0F172A;
+    padding:15px 0;
+    box-shadow:0px 4px 15px rgba(0,0,0,0.2);
+}
+
+.navbar-brand{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-link{
+    color:white !important;
+    margin-left:12px;
+    transition:0.3s;
+    font-size:16px;
+}
+
+.nav-link:hover{
+    color:#60A5FA !important;
 }
 
 /* Hero Section */
-.hero {
-	min-height: 90vh;
-	background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
-	color: white;
-	display: flex;
-	align-items: center;
+
+.hero{
+    min-height:100vh;
+    background:
+    linear-gradient(
+    135deg,
+    #0F172A,
+    #1D4ED8,
+    #2563EB
+    );
+
+    color:white;
+
+    display:flex;
+    align-items:center;
+
+    padding:80px 0;
 }
 
-.hero h1 {
-	font-size: 60px;
-	font-weight: bold;
+.hero h1{
+    font-size:65px;
+    font-weight:bold;
 }
 
-.hero p {
-	font-size: 22px;
-	margin-top: 20px;
+.hero p{
+    font-size:22px;
+    margin-top:20px;
+    line-height:1.7;
 }
 
-/* Cards */
-.feature-card {
-	transition: 0.3s;
-	border: none;
-	border-radius: 15px;
+.hero-btn{
+    margin-top:30px;
 }
 
-.feature-card:hover {
-	transform: translateY(-10px);
-	box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+.hero-btn a{
+    margin-right:15px;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:450px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
 }
 
 /* About */
-.about-section {
-	background: #f8f9fa;
-	padding: 80px 0;
+
+.about-section{
+    padding:90px 0;
+    background:white;
 }
 
-/* Services */
-.services-section {
-	padding: 80px 0;
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
 }
 
-/* Jobs */
-.jobs-section {
-	background: #f8f9fa;
-	padding: 80px 0;
+.section-title h2{
+    font-size:45px;
+    font-weight:bold;
+    color:#0F172A;
+}
+
+.section-title p{
+    color:#64748B;
+    margin-top:10px;
+}
+
+/* Cards */
+
+.feature-card{
+    background:white;
+    border:none;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    transition:0.3s;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.08);
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+}
+
+.feature-card i{
+    font-size:55px;
+    color:#2563EB;
+    margin-bottom:20px;
+}
+
+.feature-card h3{
+    margin-bottom:15px;
+}
+
+/* Login Section */
+
+.login-section{
+    padding:90px 0;
+    background:#EEF2FF;
+}
+
+.login-card{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0px 5px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.login-card:hover{
+    transform:translateY(-8px);
+}
+
+.login-icon{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#DBEAFE;
+    color:#2563EB;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    font-size:40px;
+}
+
+.login-card h2{
+    margin-top:25px;
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.login-card p{
+    color:#64748B;
+}
+
+.login-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    color:white;
+    font-size:18px;
+    margin-top:20px;
+}
+
+.admin-btn{
+    background:#2563EB;
+}
+
+.student-btn{
+    background:#16A34A;
 }
 
 /* Footer */
-.footer {
-	background: #0f172a;
-	color: white;
-	padding: 50px 0;
+
+.footer{
+    background:#0F172A;
+    color:white;
+    padding:60px 0;
+    text-align:center;
 }
 
-.footer a {
-	color: white;
-	text-decoration: none;
+.footer p{
+    margin-top:15px;
+    color:#CBD5E1;
 }
+
+/* Responsive */
+
+@media(max-width:991px){
+
+    .hero{
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .hero-image{
+        margin-top:50px;
+    }
+
+    .navbar-nav{
+        margin-top:20px;
+    }
+}
+
 </style>
 
 </head>
 
 <body>
 
-	<!-- Navbar -->
+<!-- Navbar -->
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
 
-		<div class="container">
+    <div class="container">
 
-			<a class="navbar-brand fw-bold" href="#"> DD INSTITUTE </a>
+        <a class="navbar-brand" href="#">
 
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="bi bi-mortarboard-fill"></i>
+             INSTITUTE
 
-				<span class="navbar-toggler-icon"></span>
+        </a>
 
-			</button>
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav">
 
-			<div class="collapse navbar-collapse" id="navbarNav">
+            <span class="navbar-toggler-icon"></span>
 
-				<ul class="navbar-nav ms-auto">
+        </button>
 
-					<li class="nav-item"><a class="nav-link active" href="#home">Home</a>
-					</li>
+        <div
+        class="collapse navbar-collapse"
+        id="navbarNav">
 
-					<li class="nav-item"><a class="nav-link" href="#about">About</a>
-					</li>
+            <ul class="navbar-nav ms-auto">
 
-					<li class="nav-item"><a class="nav-link" href="#services">Services</a>
-					</li>
+                <li class="nav-item">
 
-					<li class="nav-item"><a class="nav-link" href="#jobs">Jobs</a>
-					</li>
+                    <a class="nav-link active"
+                    href="#home">
 
-					<li class="nav-item"><a
-						class="nav-link btn btn-primary text-white px-3 ms-2"
-						href="admin/AdminLogin.html"> Admin Login </a></li>
+                        Home
 
-					<li class="nav-item"><a
-						class="nav-link btn btn-success text-white px-3 ms-2"
-						href="student/StudentLogin.html"> Student Login </a></li>
+                    </a>
 
-				</ul>
+                </li>
 
-			</div>
+                <li class="nav-item">
 
-		</div>
+                    <a class="nav-link"
+                    href="#about">
 
-	</nav>
+                        About
 
-	<!-- Hero Section -->
+                    </a>
 
-	<section class="hero" id="home">
+                </li>
 
-		<div class="container">
+                <li class="nav-item">
 
-			<div class="row align-items-center">
+                    <a class="nav-link"
+                    href="#login">
 
-				<div class="col-lg-6">
+                        Login
 
-					<h1>Placement Tracking System</h1>
+                    </a>
 
-					<p>Manage student placements, company drives, applications, and
-						placement records efficiently.</p>
+                </li>
 
-					<a href="#" class="btn btn-warning btn-lg mt-3"> Get Started </a>
+            </ul>
 
-				</div>
+        </div>
 
-				<div class="col-lg-6 text-center">
+    </div>
 
-					<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-						class="img-fluid" width="400">
+</nav>
 
-				</div>
-			</div>
+<!-- Hero Section -->
 
-		</div>
+<section
+class="hero"
+id="home">
 
-	</section>
+    <div class="container">
 
-	<!-- Feature Cards -->
+        <div class="row align-items-center">
 
-	<section class="py-5">
+            <div class="col-lg-6">
 
-		<div class="container">
+                <h1>
+                    Placement Tracking System
+                </h1>
 
-			<div class="row g-4">
+                <p>
 
-				<div class="col-md-4">
+                    Manage placements,
+                    company drives,
+                    applications and
+                    placement records
+                    efficiently in one platform.
 
-					<div class="card feature-card p-4 text-center">
+                </p>
 
-						<i class="bi bi-person-workspace display-3 text-primary"></i>
+                <div class="hero-btn">
 
-						<h3 class="mt-3">Student Management</h3>
+                    <a href="#login"
+                    class="btn btn-warning btn-lg">
 
-						<p>Manage student details, profiles, and placement records.</p>
+                        Get Started
 
-					</div>
+                    </a>
 
-				</div>
+                </div>
 
-				<div class="col-md-4">
+            </div>
 
-					<div class="card feature-card p-4 text-center">
+            <div class="col-lg-6 text-center hero-image">
 
-						<i class="bi bi-building display-3 text-success"></i>
+                <img
+                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 
-						<h3 class="mt-3">Company Drives</h3>
+            </div>
 
-						<p>Add company details, eligibility, and placement
-							opportunities.</p>
+        </div>
 
-					</div>
+    </div>
 
-				</div>
+</section>
 
-				<div class="col-md-4">
+<!-- About Section -->
 
-					<div class="card feature-card p-4 text-center">
+<section
+class="about-section"
+id="about">
 
-						<i class="bi bi-bar-chart-fill display-3 text-danger"></i>
+    <div class="container">
 
-						<h3 class="mt-3">Placement Reports</h3>
+        <div class="section-title">
 
-						<p>Track placement statistics and placement success reports.</p>
+            <h2>
+                Why Choose Our System
+            </h2>
 
-					</div>
+            <p>
+                Smart platform for placement management
+            </p>
 
-				</div>
+        </div>
 
-			</div>
+        <div class="row g-4">
 
-		</div>
+            <div class="col-lg-4">
 
-	</section>
+                <div class="feature-card">
 
-	<!-- About Section -->
+                    <i class="bi bi-buildings-fill"></i>
 
-	<section class="about-section" id="about">
+                    <h3>
+                        Company Management
+                    </h3>
 
-		<div class="container">
+                    <p>
 
-			<div class="row align-items-center">
+                        Add, update and
+                        manage companies
+                        easily.
 
-				<div class="col-lg-6">
+                    </p>
 
-					<img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
-						class="img-fluid">
+                </div>
 
-				</div>
+            </div>
 
-				<div class="col-lg-6">
+            <div class="col-lg-4">
 
-					<h2 class="fw-bold mb-4">About Us</h2>
+                <div class="feature-card">
 
-					<p class="fs-5">The Placement Tracking System helps institutes
-						manage placement activities digitally. It simplifies student
-						registration, company management, and placement tracking.</p>
+                    <i class="bi bi-people-fill"></i>
 
-					<p class="fs-5">This platform improves placement process
-						efficiency and helps students apply for opportunities easily.</p>
+                    <h3>
+                        Student Tracking
+                    </h3>
 
-				</div>
+                    <p>
 
-			</div>
+                        Track student profiles,
+                        applications and
+                        placements.
 
-		</div>
+                    </p>
 
-	</section>
+                </div>
 
-	<!-- Services Section -->
+            </div>
 
-	<section class="services-section" id="services">
+            <div class="col-lg-4">
 
-		<div class="container">
+                <div class="feature-card">
 
-			<h2 class="text-center fw-bold mb-5">Our Services</h2>
+                    <i class="bi bi-briefcase-fill"></i>
 
-			<div class="row g-4">
+                    <h3>
+                        Placement Records
+                    </h3>
 
-				<div class="col-md-3">
+                    <p>
 
-					<div class="card p-4 text-center feature-card">
+                        Manage selected and
+                        rejected students
+                        efficiently.
 
-						<i class="bi bi-person-plus-fill display-4 text-primary"></i>
+                    </p>
 
-						<h4 class="mt-3">Student Registration</h4>
+                </div>
 
-					</div>
+            </div>
 
-				</div>
+        </div>
 
-				<div class="col-md-3">
+    </div>
 
-					<div class="card p-4 text-center feature-card">
+</section>
 
-						<i class="bi bi-building-add display-4 text-success"></i>
+<!-- Login Section -->
 
-						<h4 class="mt-3">Company Management</h4>
+<section
+class="login-section"
+id="login">
 
-					</div>
+    <div class="container">
 
-				</div>
+        <div class="section-title">
 
-				<div class="col-md-3">
+            <h2>
+                Login Portal
+            </h2>
 
-					<div class="card p-4 text-center feature-card">
+            <p>
+                Access Admin and Student Dashboard
+            </p>
 
-						<i class="bi bi-file-earmark-check-fill display-4 text-danger"></i>
+        </div>
 
-						<h4 class="mt-3">Job Applications</h4>
+        <div class="row g-5 justify-content-center">
 
-					</div>
+            <!-- Admin Login -->
 
-				</div>
+            <div class="col-lg-4">
 
-				<div class="col-md-3">
+                <div class="login-card text-center">
 
-					<div class="card p-4 text-center feature-card">
+                    <div class="login-icon">
 
-						<i class="bi bi-graph-up-arrow display-4 text-warning"></i>
+                        <i class="bi bi-person-workspace"></i>
 
-						<h4 class="mt-3">Placement Analytics</h4>
+                    </div>
 
-					</div>
+                    <h2>
+                        Admin Login
+                    </h2>
 
-				</div>
+                    <p>
 
-			</div>
+                        Manage companies,
+                        students and
+                        placement activities.
 
-		</div>
+                    </p>
 
-	</section>
+                    <a
+                    href="admin/AdminLogin.html"
+                    class="btn login-btn admin-btn">
 
-	<!-- Jobs Section -->
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        Login As Admin
 
-	<section class="jobs-section" id="jobs">
+                    </a>
 
-		<div class="container">
+                </div>
 
-			<h2 class="text-center fw-bold mb-5">Latest Job Opportunities</h2>
+            </div>
 
-			<div class="row g-4">
+            <!-- Student Login -->
 
-				<div class="col-md-4">
+            <div class="col-lg-4">
 
-					<div class="card p-4 feature-card">
+                <div class="login-card text-center">
 
-						<h4>TCS</h4>
+                    <div class="login-icon">
 
-						<p>Role : Java Developer</p>
+                        <i class="bi bi-person-circle"></i>
 
-						<p>Package : 4.5 LPA</p>
+                    </div>
 
-						<p>Location : Pune</p>
+                    <h2>
+                        Student Login
+                    </h2>
 
-						<button class="btn btn-primary">Apply Now</button>
+                    <p>
 
-					</div>
+                        Apply for companies
+                        and track placement
+                        status.
 
-				</div>
+                    </p>
 
-				<div class="col-md-4">
+                    <a
+                    href="student/StudentLogin.html"
+                    class="btn login-btn student-btn">
 
-					<div class="card p-4 feature-card">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        Login As Student
 
-						<h4>Infosys</h4>
+                    </a>
 
-						<p>Role : Software Engineer</p>
+                </div>
 
-						<p>Package : 5 LPA</p>
+            </div>
 
-						<p>Location : Bangalore</p>
+        </div>
 
-						<button class="btn btn-success">Apply Now</button>
+    </div>
 
-					</div>
+</section>
 
-				</div>
+<!-- Footer -->
 
-				<div class="col-md-4">
+<footer class="footer">
 
-					<div class="card p-4 feature-card">
+    <div class="container">
 
-						<h4>Wipro</h4>
+        <h2>
+              Institute
+        </h2>
 
-						<p>Role : Full Stack Developer</p>
+        <p>
 
-						<p>Package : 6 LPA</p>
+            Placement Tracking System
+            © 2026 All Rights Reserved
 
-						<p>Location : Hyderabad</p>
+        </p>
 
-						<button class="btn btn-danger">Apply Now</button>
+    </div>
 
-					</div>
+</footer>
 
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
-
-	<!-- Footer -->
-
-	<footer class="footer">
-
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-lg-4">
-
-					<h3>DD INSTITUTE</h3>
-
-					<p>Placement Tracking System helps students and institutes
-						manage placements efficiently.</p>
-
-				</div>
-
-				<div class="col-lg-4">
-
-					<h4>Quick Links</h4>
-
-					<p>
-						<a href="#home">Home</a>
-					</p>
-					<p>
-						<a href="#about">About</a>
-					</p>
-					<p>
-						<a href="#services">Services</a>
-					</p>
-					<p>
-						<a href="#jobs">Jobs</a>
-					</p>
-
-				</div>
-
-				<div class="col-lg-4">
-
-					<h4>Contact</h4>
-
-					<p>Email : ddinstitute@gmail.com</p>
-					<p>Phone : +91 9876543210</p>
-					<p>Pune, Maharashtra</p>
-
-				</div>
-
-			</div>
-
-			<hr>
-
-			<div class="text-center">
-
-				<p>© 2026 DD Institute | All Rights Reserved</p>
-
-			</div>
-
-		</div>
-
-	</footer>
-
-	<!-- Bootstrap JS -->
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
 
 </body>
+
 </html>

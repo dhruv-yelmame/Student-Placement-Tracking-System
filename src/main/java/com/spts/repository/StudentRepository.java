@@ -11,4 +11,6 @@ public interface StudentRepository {
 	Student getStudentProfile(int sid);
 
 	boolean updateProfile(Student s);
+	
+	public boolean deleteStudent(int sid);
 }

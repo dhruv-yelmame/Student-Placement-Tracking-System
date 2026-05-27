@@ -38,7 +38,11 @@ public class StudentViewCompanyServlet extends HttpServlet {
 
 		if (sid == null) {
 
-			response.sendRedirect(request.getContextPath() + "/student/StudentLogin.html");
+			response.sendRedirect(
+
+					request.getContextPath() + "/student/StudentLogin.html"
+
+			);
 
 			return;
 		}
@@ -184,21 +188,52 @@ public class StudentViewCompanyServlet extends HttpServlet {
 
 			out.println("<td>");
 
-			boolean applied = pservice.isAlreadyApplied(sid, c.getCid());
+			String status = pservice.getApplicationStatus(sid, c.getCid());
 
-			if (applied) {
+			if (status != null) {
 
-				out.println(
+				if (status.equals("Applied")) {
 
-						"<a href='WithdrawCompanyServlet?cid=" + c.getCid() + "' class='btn-withdraw'>"
+					out.println(
 
-								+ "<i class='bi bi-x-circle-fill'></i> " + "Withdraw"
+							"<a href='WithdrawCompanyServlet?cid=" + c.getCid() + "' class='btn-withdraw'>"
 
-								+ "</a>"
+									+ "<i class='bi bi-x-circle-fill'></i> " + "Withdraw"
 
-				);
+									+ "</a>"
 
-			} else {
+					);
+				}
+
+				else if (status.equals("Selected")) {
+
+					out.println(
+
+							"<button class='btn btn-success' disabled>"
+
+									+ "<i class='bi bi-check-circle-fill'></i> " + "Selected"
+
+									+ "</button>"
+
+					);
+				}
+
+				else if (status.equals("Rejected")) {
+
+					out.println(
+
+							"<button class='btn btn-danger' disabled>"
+
+									+ "<i class='bi bi-x-circle-fill'></i> " + "Rejected"
+
+									+ "</button>"
+
+					);
+				}
+
+			}
+
+			else {
 
 				out.println(
 

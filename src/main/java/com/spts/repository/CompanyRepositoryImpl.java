@@ -114,7 +114,7 @@ public class CompanyRepositoryImpl extends DBConfig implements CompanyRepository
 
 			PreparedStatement pstmt = conn.prepareStatement(
 
-					"select * from companies " + "where cid=?"
+					"select * from companies where cid=?"
 
 			);
 
@@ -154,9 +154,7 @@ public class CompanyRepositoryImpl extends DBConfig implements CompanyRepository
 
 			PreparedStatement pstmt = conn.prepareStatement(
 
-					"update companies " + "set company_name=?, " + "company_package=?, " + "location=?, "
-							+ "criteria=? " + "where cid=?"
-
+					"update companies set company_name=?, company_package=?, location=?, criteria=? where cid=?"
 			);
 
 			pstmt.setString(1, c.getCompany_name());

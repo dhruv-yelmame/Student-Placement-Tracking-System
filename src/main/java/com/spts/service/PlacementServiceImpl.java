@@ -46,4 +46,10 @@ public class PlacementServiceImpl implements PlacementService {
 
 		return repo.getStudentPlacements(sid);
 	}
+
+	@Override
+	public String getApplicationStatus(int sid, int cid) {
+
+		return repo.getApplicationStatus(sid, cid);
+	}
 }

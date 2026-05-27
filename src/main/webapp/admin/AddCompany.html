@@ -17,119 +17,111 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <style>
-
-*{
-	margin:0;
-	padding:0;
-	box-sizing:border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-body{
-	background:#f1f5f9;
-	font-family:Arial,sans-serif;
-	height:100vh;
-	overflow:hidden;
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	padding:10px;
+body {
+	background: #f1f5f9;
+	font-family: Arial, sans-serif;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
 }
 
 /* Main Container */
-
-.main-container{
-	width:100%;
-	max-width:650px;
+.main-container {
+	width: 100%;
+	max-width: 650px;
 }
 
 /* Form Box */
-
-.form-box{
-	background:white;
-	border-radius:18px;
-	overflow:hidden;
-	box-shadow:0px 6px 18px rgba(0,0,0,0.08);
+.form-box {
+	background: white;
+	border-radius: 18px;
+	overflow: hidden;
+	box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 /* Header */
-
-.form-header{
-	background:linear-gradient(135deg,#2563EB,#1E40AF);
-	padding:15px;
-	text-align:center;
-	color:white;
+.form-header {
+	background: linear-gradient(135deg, #2563EB, #1E40AF);
+	padding: 15px;
+	text-align: center;
+	color: white;
 }
 
-.form-header i{
-	font-size:42px;
-	margin-bottom:6px;
+.form-header i {
+	font-size: 42px;
+	margin-bottom: 6px;
 }
 
-.form-header h1{
-	font-size:26px;
-	font-weight:bold;
-	margin-bottom:3px;
+.form-header h1 {
+	font-size: 26px;
+	font-weight: bold;
+	margin-bottom: 3px;
 }
 
-.form-header p{
-	font-size:13px;
-	color:#DBEAFE;
+.form-header p {
+	font-size: 13px;
+	color: #DBEAFE;
 }
 
 /* Form Body */
-
-.form-body{
-	padding:18px;
+.form-body {
+	padding: 18px;
 }
 
-.form-label{
-	font-weight:bold;
-	color:#374151;
-	margin-bottom:4px;
-	font-size:14px;
+.form-label {
+	font-weight: bold;
+	color: #374151;
+	margin-bottom: 4px;
+	font-size: 14px;
 }
 
-.form-control{
-	height:40px;
-	border-radius:10px;
-	border:1px solid #D1D5DB;
-	padding-left:12px;
-	font-size:14px;
+.form-control {
+	height: 40px;
+	border-radius: 10px;
+	border: 1px solid #D1D5DB;
+	padding-left: 12px;
+	font-size: 14px;
 }
 
-.form-control:focus{
-	box-shadow:none;
-	border:2px solid #2563EB;
+.form-control:focus {
+	box-shadow: none;
+	border: 2px solid #2563EB;
 }
 
 /* Spacing */
-
-.mb-3{
-	margin-bottom:10px !important;
+.mb-3 {
+	margin-bottom: 10px !important;
 }
 
-.mb-4{
-	margin-bottom:12px !important;
+.mb-4 {
+	margin-bottom: 12px !important;
 }
 
 /* Button */
-
-.btn-submit{
-	width:100%;
-	height:42px;
-	border:none;
-	border-radius:10px;
-	background:#2563EB;
-	color:white;
-	font-size:15px;
-	font-weight:bold;
-	transition:0.3s;
+.btn-submit {
+	width: 100%;
+	height: 42px;
+	border: none;
+	border-radius: 10px;
+	background: #2563EB;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	transition: 0.3s;
 }
 
-.btn-submit:hover{
-	background:#1D4ED8;
+.btn-submit:hover {
+	background: #1D4ED8;
 }
-
 </style>
 
 </head>
@@ -160,73 +152,39 @@ body{
 
 					<div class="mb-3">
 
-						<label class="form-label">
-
-							Company Name
-
-						</label>
-
-						<input type="text"
-						       name="company_name"
-						       class="form-control"
-						       placeholder="Enter Company Name"
-						       required>
+						<label class="form-label"> Company Name </label> <input
+							type="text" name="company_name" class="form-control"
+							placeholder="Enter Company Name" required>
 
 					</div>
 
 					<div class="mb-3">
 
-						<label class="form-label">
-
-							Company Package
-
-						</label>
-
-						<input type="text"
-						       name="company_package"
-						       class="form-control"
-						       placeholder="Enter Package"
-						       required>
+						<label class="form-label"> Company Package </label> <input
+							type="text" name="company_package" class="form-control"
+							placeholder="Enter Package" required>
 
 					</div>
 
 					<div class="mb-3">
 
-						<label class="form-label">
-
-							Company Location
-
-						</label>
-
-						<input type="text"
-						       name="location"
-						       class="form-control"
-						       placeholder="Enter Location"
-						       required>
+						<label class="form-label"> Company Location </label> <input
+							type="text" name="location" class="form-control"
+							placeholder="Enter Location" required>
 
 					</div>
 
 					<div class="mb-4">
 
-						<label class="form-label">
-
-							Eligibility Criteria
-
-						</label>
-
-						<input type="text"
-						       name="criteria"
-						       class="form-control"
-						       placeholder="Enter Criteria"
-						       required>
+						<label class="form-label"> Eligibility Criteria </label> <input
+							type="text" name="criteria" class="form-control"
+							placeholder="Enter Criteria" required>
 
 					</div>
 
 					<button type="submit" class="btn-submit">
 
-						<i class="bi bi-plus-circle-fill"></i>
-
-						Add Company
+						<i class="bi bi-plus-circle-fill"></i> Add Company
 
 					</button>
 

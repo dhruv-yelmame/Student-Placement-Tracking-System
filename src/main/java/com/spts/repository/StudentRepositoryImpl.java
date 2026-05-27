@@ -103,8 +103,7 @@ public class StudentRepositoryImpl extends DBConfig implements StudentRepository
 
 			PreparedStatement pstmt = conn.prepareStatement(
 
-					"update students set " + "name=?,email=?,mobile=?," + "course=?,percentage=?,skills=? "
-							+ "where sid=?"
+					"update students set name=?, email=?, mobile=?, course=?, percentage=?, skills=? where sid=?"
 
 			);
 
@@ -134,6 +133,29 @@ public class StudentRepositoryImpl extends DBConfig implements StudentRepository
 			System.out.println(e);
 		}
 
+		return status;
+	}
+
+	@Override
+	public boolean deleteStudent(int sid) {
+		boolean status = false;
+		
+		try {
+			
+			PreparedStatement pstmt = conn.prepareStatement("delete from students where sid=?");
+			pstmt.setInt(1, sid);
+			
+			int value = pstmt.executeUpdate();
+			
+			if(value > 0)
+			{
+				status = true;
+			}
+		}
+		catch(Exception ex)
+		{
+			System.out.println(ex);
+		}
 		return status;
 	}
 }

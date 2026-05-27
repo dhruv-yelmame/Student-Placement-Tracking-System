@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,6 +21,9 @@ public class AdminLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		
 		String username = request.getParameter("username");
 
 		String password = request.getParameter("password");
@@ -54,8 +58,77 @@ public class AdminLoginServlet extends HttpServlet {
 
 			else {
 
-				response.getWriter().println(
-						"<h2>Invalid Username or Password</h2>");
+				out.println("<html>");
+
+				out.println("<head>");
+
+				out.println("<title>");
+
+				out.println("Login Failed");
+
+				out.println("</title>");
+
+				out.println("<link " + "href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' "
+						+ "rel='stylesheet'>");
+
+				out.println("<style>");
+
+				out.println("body{");
+
+				out.println("background:#EEF2FF;");
+
+				out.println("display:flex;");
+
+				out.println("justify-content:center;");
+
+				out.println("align-items:center;");
+
+				out.println("height:100vh;");
+
+				out.println("font-family:Arial;");
+
+				out.println("}");
+
+				out.println(".error-box{");
+
+				out.println("background:white;");
+
+				out.println("padding:40px;");
+
+				out.println("border-radius:20px;");
+
+				out.println("box-shadow:0px 5px 20px rgba(0,0,0,0.08);");
+
+				out.println("text-align:center;");
+
+				out.println("}");
+
+				out.println("</style>");
+
+				out.println("</head>");
+
+				out.println("<body>");
+
+				out.println("<div class='error-box'>");
+
+				out.println("<h2 class='text-danger'>");
+
+				out.println("Invalid Email or Password");
+
+				out.println("</h2>");
+
+				out.println("<a href='" + request.getContextPath() + "/admin/AdminLogin.html' "
+						+ "class='btn btn-primary mt-3'>");
+
+				out.println("Back to Login");
+
+				out.println("</a>");
+
+				out.println("</div>");
+
+				out.println("</body>");
+
+				out.println("</html>");
 			}
 
 			conn.close();

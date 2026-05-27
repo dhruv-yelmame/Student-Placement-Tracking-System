@@ -20,8 +20,15 @@ public class StudentLogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		session.invalidate();
+		
+		response.setHeader("Cache-Control",
+				"no-cache, no-store, must-revalidate");
 
-		response.sendRedirect(request.getContextPath() + "/student/StudentLogin.html");
+		response.setHeader("Pragma", "no-cache");
+
+		response.setDateHeader("Expires", 0);
+
+		response.sendRedirect("home.html");
 	}
 
 	@Override

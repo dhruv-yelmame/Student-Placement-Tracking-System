@@ -37,7 +37,7 @@ public class WithdrawCompanyServlet extends HttpServlet {
 
 		service.withdrawCompany(sid, cid);
 
-		response.sendRedirect("ViewCompanyServlet");
+		response.sendRedirect("StudentViewCompanyServlet");
 	}
 
 	@Override

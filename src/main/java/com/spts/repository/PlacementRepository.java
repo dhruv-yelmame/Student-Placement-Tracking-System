@@ -17,4 +17,6 @@ public interface PlacementRepository {
 	boolean isAlreadyApplied(int sid, int cid);
 
 	List<Object[]> getStudentPlacements(int sid);
+
+	String getApplicationStatus(int sid, int cid);
 }
