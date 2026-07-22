@@ -65,7 +65,7 @@ public class StudentLoginServlet extends HttpServlet {
 
 				// Redirect Dashboard
 
-				response.sendRedirect(request.getContextPath() + "/student/StudentDashboard.html");
+				response.sendRedirect(request.getContextPath() + "/student/StudentDashboard.jsp");
 			}
 
 			else {
@@ -129,7 +129,7 @@ public class StudentLoginServlet extends HttpServlet {
 
 				out.println("</h2>");
 
-				out.println("<a href='" + request.getContextPath() + "/student/StudentLogin.html' "
+				out.println("<a href='" + request.getContextPath() + "/student/StudentLogin.jsp' "
 						+ "class='btn btn-primary mt-3'>");
 
 				out.println("Back to Login");

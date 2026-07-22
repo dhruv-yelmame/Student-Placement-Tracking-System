@@ -23,7 +23,7 @@ public class AdminLoginServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		
+
 		String username = request.getParameter("username");
 
 		String password = request.getParameter("password");
@@ -32,13 +32,10 @@ public class AdminLoginServlet extends HttpServlet {
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			Connection conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/placement_tracking_system",
-					"root",
-					"8010865586");
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/placement_tracking_system",
+					"root", "8010865586");
 
-			PreparedStatement pstmt = conn.prepareStatement(
-					"select * from admins where username=? and password=?");
+			PreparedStatement pstmt = conn.prepareStatement("select * from admins where username=? and password=?");
 
 			pstmt.setString(1, username);
 
@@ -52,7 +49,7 @@ public class AdminLoginServlet extends HttpServlet {
 
 				session.setAttribute("admin", username);
 
-				response.sendRedirect("admin/AdminDashboard.html");
+				response.sendRedirect("admin/AdminDashboard.jsp");
 
 			}
 
@@ -117,7 +114,7 @@ public class AdminLoginServlet extends HttpServlet {
 
 				out.println("</h2>");
 
-				out.println("<a href='" + request.getContextPath() + "/admin/AdminLogin.html' "
+				out.println("<a href='" + request.getContextPath() + "/admin/AdminLogin.jsp' "
 						+ "class='btn btn-primary mt-3'>");
 
 				out.println("Back to Login");
@@ -142,8 +139,7 @@ public class AdminLoginServlet extends HttpServlet {
 	}
 
 	@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		doPost(request, response);

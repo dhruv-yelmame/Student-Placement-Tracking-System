@@ -16,7 +16,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 @WebServlet("/DashboardServlet")
-public class DashboardServlet extends HttpServlet {
+public class AdminDashboardServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,7 +28,7 @@ public class DashboardServlet extends HttpServlet {
 
 		if (session == null || session.getAttribute("admin") == null) {
 
-			response.sendRedirect("admin/AdminLogin.html");
+			response.sendRedirect("admin/AdminLogin.jsp");
 
 			return;
 		}

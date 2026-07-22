@@ -82,7 +82,7 @@ public class StudentRegisterServlet extends HttpServlet {
 
 				out.println("<h2>Registration Successfully</h2>");
 
-				out.println("<a href='/Servlet1/student/StudentLogin.html' class='btn btn-primary'>Login Now</a>");
+				out.println("<a href='/Servlet1/student/StudentLogin.jsp' class='btn btn-primary'>Login Now</a>");
 
 				out.println("</div>");
 

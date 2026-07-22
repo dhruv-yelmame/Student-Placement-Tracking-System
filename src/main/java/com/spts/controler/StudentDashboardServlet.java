@@ -34,7 +34,7 @@ public class StudentDashboardServlet extends HttpServlet {
 
 		if (session == null || session.getAttribute("sid") == null) {
 
-			response.sendRedirect(request.getContextPath() + "/student/StudentLogin.html");
+			response.sendRedirect(request.getContextPath() + "/student/StudentLogin.jsp");
 
 			return;
 		}

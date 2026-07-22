@@ -33,7 +33,7 @@ public class ViewStudentsServlet extends HttpServlet {
 
 		if (admin == null) {
 
-			response.sendRedirect(request.getContextPath() + "/admin/AdminLogin.html");
+			response.sendRedirect(request.getContextPath() + "/admin/AdminLogin.jsp");
 
 			return;
 		}

@@ -35,7 +35,7 @@ public class StudentPlacementStatusServlet extends HttpServlet {
 
 			response.sendRedirect(
 
-					request.getContextPath() + "/student/StudentLogin.html");
+					request.getContextPath() + "/student/StudentLogin.jsp");
 
 			return;
 		}

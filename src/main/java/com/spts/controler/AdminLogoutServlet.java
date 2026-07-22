@@ -31,7 +31,7 @@ public class AdminLogoutServlet extends HttpServlet {
 
 		response.setDateHeader("Expires", 0);
 
-		response.sendRedirect("home.html");
+		response.sendRedirect("home.jsp");
 	}
 
 	@Override

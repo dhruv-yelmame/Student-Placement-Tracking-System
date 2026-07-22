@@ -26,7 +26,7 @@ public class WithdrawCompanyServlet extends HttpServlet {
 
 		if (sid == null) {
 
-			response.sendRedirect(request.getContextPath() + "/student/StudentLogin.html");
+			response.sendRedirect(request.getContextPath() + "/student/StudentLogin.jsp");
 
 			return;
 		}
