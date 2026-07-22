@@ -39,13 +39,3 @@ A web-based application developed to manage and track student placement activiti
 - Git & GitHub
 
 ---
-
-## 📂 Project Structure
-
-```text
-SPTS/
-│── src/
-│── WebContent/
-│── target/
-│── pom.xml
-│── README.md
